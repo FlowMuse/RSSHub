@@ -1,4 +1,4 @@
-name: Ephemeral RSSHub & TG Bot (Node.js)
+name: RSSHub & TG Bot (Node.js)
 
 on:
   schedule:
