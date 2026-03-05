@@ -1,0 +1,34 @@
+name: Ephemeral RSSHub & TG Bot (Node.js)
+
+on:
+  schedule:
+    - cron: '0 */8 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-task:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+
+    - name: 配置 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '24' 
+
+    - name: 安装依赖
+      run: npm install
+
+    - name: 后台启动 RSSHub 服务
+      run: |
+        npm run start & 
+        echo "等待 RSSHub 启动..."
+        sleep 15 
+
+    - name: 运行 Node.js 抓取与推送脚本
+      env:
+        TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+        TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+      run: node bot.js
