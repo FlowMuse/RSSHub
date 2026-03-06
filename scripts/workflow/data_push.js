@@ -7,9 +7,7 @@ const CHAT_ID = process.env.TG_CHAT_ID;
 
 // 定义你需要抓取的多个本地路由
 const ROUTES = [
-    '/your/custom/route1',
-    '/your/custom/route2',
-    '/bilibili/user/dynamic/2267573' // 示例：B站动态
+    '/bilibili/popular/all',
 ];
 
 // 本地运行的 RSSHub 基础地址
