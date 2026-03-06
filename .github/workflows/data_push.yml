@@ -24,7 +24,10 @@ jobs:
         
     - name: 安装依赖
       run: pnpm install
-
+  
+    - name: 构建 RSSHub 
+      run: pnpm run build
+      
     - name: 后台启动 RSSHub 服务
       run: |
         pnpm run start & 
