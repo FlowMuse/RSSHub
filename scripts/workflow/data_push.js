@@ -1,4 +1,4 @@
-const Parser = require('rss-parser');
+import Parser from 'rss-parser';
 const parser = new Parser();
 
 // 从环境变量读取 TG 配置
