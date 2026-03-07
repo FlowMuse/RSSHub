@@ -51,13 +51,13 @@ async function main() {
                 const pubDateTimestamp = new Date(item.pubDate).getTime();
 
                 // 判断：如果发布时间在最近 8 小时内，则推送
-                if (pubDateTimestamp > eightHoursAgo) {
+                // if (pubDateTimestamp > eightHoursAgo) {
                     const message = `<b>${item.title}</b>\n<a href="${item.link}">点击查看详情</a>`;
                     await sendTgMessage(message);
                     
                     // 增加 1 秒延迟，防止触发 Telegram API 发送频率限制 (Rate Limit)
                     await new Promise(resolve => setTimeout(resolve, 1000));
-                }
+                // }
             }
         } catch (error) {
             console.error(`抓取 ${fullUrl} 失败:`, error.message);
